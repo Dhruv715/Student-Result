@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Result</title>
+    <style>
+             *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        div:first-child{
+            background-color: black;
+            color: white;
+            width: 100vw;
+            height: 100vh;
+            /* padding: 20px 0px; */
+            overflow-x: hidden;
+            /* overflow: hidden; */
+            font-family: poppins;
+            text-align: center;
+        }
+        table a{
+        text-decoration: none;
+        color: white;
+        padding: 10px;
+        font-size: 1.2rem;
+      }
+        div:first-child h1{
+            padding: 10px 0px;
+            font-weight: 500;
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 20px;
+        }
+        nav a{
+            color: white;
+        }
+        div form {
+                width: 50%;
+                background-color: rgba(31, 31, 31, 0.785);
+                padding: 10px;
+                margin: 10px auto;
+
+        }
+        div form input{
+            padding: 10px 20px;
+            margin: 10px 0px;
+            width: 50%;
+        }
+        div form input:last-child{
+            padding: 10px 20px;
+            background-color: gray;
+            color: white;
+            width: 20%;
+        }
+        .semitbl {
+        margin: 10px auto;
+        width: 90%;
+        text-align: center;
+        background-color: black;
+        /* padding: 10px; */
+        font-family: poppins;
+        color: white;
+      }
+      .semitbl table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      .semitbl td,
+      th {
+        border: 2px solid white;
+        padding: 10px 20px;
+      }
+    </style>
+</head>
+<body>
+  <div>
+    <nav>
+        <h1>Admin Dashboard</h1>
+        <h3><a href="/admin/dashboard">Student Details</a></h3>
+        <h3><a href="/admin/result">Student Result</a></h3>
+       <h4> <a href="/admin/login"><i class="ri-user-line"></i>Logout</a></h4>
+    </nav>
+ <div>
+    <form action="/admin/update/<%= student[0].rollno %>" method="post">
+        <h2>Update Student Details</h2>
+        <input type="text" value="<%= student[0].grno %>" name="grno" placeholder="Enter GR No..">
+        <br>
+        <input type="text" value="<%= student[0].name %>" name="name" placeholder="Enter Student Full Name Here..">
+        <br>
+        <input type="email" value="<%= student[0].email %>" name="email" placeholder="Enter Student Email..">
+        <br>
+        <input type="text" value="<%= student[0].class %>" name="classVal" placeholder="Enter Student Class...">
+        <br>
+        <input type="text" value="<%= student[0].batch %>" name="batch" placeholder="Enter Student Batch..">
+        <br>
+        <input type="password" value="<%= student[0].password %>" name="password" placeholder="Enter Student Password">
+        <br>
+        <input type="submit" value="Update">
+    </form>
+ </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Dashboard</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        div:first-child{
+            background-color: black;
+            color: white;
+            width: 100vw;
+            /* height: 100vh;
+            overflow: hidden; */
+            padding-bottom: 50px;
+            font-family: poppins;
+            text-align: center;
+        }
+        div:first-child h1{
+            padding: 10px 0px;
+            font-weight: 500;
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 20px;
+        }
+        nav a{
+            color: white;
+        }
+        div table{
+            width: 60%;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+        div table td,th{
+            padding: 10px 20px;
+            border: 2px solid white;
+        }
+        .result{
+            padding: 10px;
+            border: 2px solid white;
+            width: 50%;
+            margin: 10px auto;
+            line-height: 50px;
+        }
+        .result h3{
+            font-weight: 500 !important;
+
+        }
+    
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div>
+        <nav>
+            <h1>Student Dashboard</h1>
+            <a href="/student/login"><i class="ri-user-line"></i>Logout</a>
+        </nav>
+        <div>
+            <div>
+              
+                <div>
+                    <h2>Top 5 Student Results</h2>
+                    <table>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Student Name</th>
+                            <th>Student Subject1 Marks</th>
+                            <th>Student Subject2 Marks</th>
+                            <th>Student Subject3 Marks</th>
+                            <th>Student Subject4 Marks</th>
+                            <th>Student Subject5 Marks</th>
+                            <th>Student Total Marks</th>
+                            <th>Student Per Marks</th>
+                            <th>Student Grade</th>
+                        </tr>
+                        <!-- Display top 5 student results -->
+                        <% top5Results.forEach(function(student) { %>
+                            <tr>
+                                <td><%= student.rollno %></td>
+                                <td><%= student.name %></td>
+                                <td><%= student.subject1 %></td>
+                                <td><%= student.subject2 %></td>
+                                <td><%= student.subject3 %></td>
+                                <td><%= student.subject4 %></td>
+                                <td><%= student.subject5 %></td>
+                                <td><%= student.total %></td>
+                                <td><%= student.per %></td>
+                                <td><%= student.grade %></td>
+                                <!-- Display other relevant fields as needed -->
+                            </tr>
+                        <% }) %>
+                    </table>
+            
+                    <h2>Your Result</h2>
+                    <!-- Display logged-in student's result -->
+                    <div class="result">
+                        
+                      
+                        <h3>Roll No: <%= loggedInStudentResult.rollno %></h3>
+                        <h3>GR NO: <%= loggedInStudentResult.grno %></h3>
+                        <h3>Name: <%= loggedInStudentResult.name %></h3>
+                      
+                        <h3>Subject1 Marks: <%= loggedInStudentResult.subject1 %></h3>
+                        <h3>Subject2 Marks: <%= loggedInStudentResult.subject2 %></h3>
+                        <h3>Subject3 Marks: <%= loggedInStudentResult.subject3 %></h3>
+                        <h3>Subject4 Marks: <%= loggedInStudentResult.subject4 %></h3>
+                        <h3>Subject5 Marks: <%= loggedInStudentResult.subject5 %></h3>
+                        <h3>Subject Total: <%= loggedInStudentResult.total %></h3>
+                        <h3>Percentage: <%= loggedInStudentResult.per %></h3>
+                        <h3>Grade: <%= loggedInStudentResult.grade %></h3>
+                
+                    </div>
+                           
+                            <!-- Display other relevant fields as needed -->
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Dashboard</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        div:first-child{
+            background-color: black;
+            color: white;
+            width: 100vw;
+            /* height: 100vh; */
+            /* padding: 20px 0px; */
+            overflow-x: hidden;
+            /* overflow: hidden; */
+            font-family: poppins;
+            text-align: center;
+        }
+        table a{
+        text-decoration: none;
+        color: white;
+        padding: 10px;
+        font-size: 1.2rem;
+      }
+        div:first-child h1{
+            padding: 10px 0px;
+            font-weight: 500;
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0px 20px;
+        }
+        nav a{
+            color: white;
+        }
+        div form {
+                width: 50%;
+                background-color: rgba(31, 31, 31, 0.785);
+                padding: 10px;
+                margin: 10px auto;
+
+        }
+        div form input{
+            padding: 10px 20px;
+            margin: 10px 0px;
+            width: 50%;
+        }
+        div form input:last-child{
+            padding: 10px 20px;
+            background-color: gray;
+            color: white;
+            width: 20%;
+        }
+        .semitbl {
+        margin: 10px auto;
+        width: 90%;
+        text-align: center;
+        background-color: black;
+        /* padding: 10px; */
+        font-family: poppins;
+        color: white;
+      }
+      .semitbl table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      .semitbl td,
+      th {
+        border: 2px solid white;
+        padding: 10px 20px;
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" integrity="sha512-OQDNdI5rpnZ0BRhhJc+btbbtnxaj+LdQFeh0V9/igiEPDiWE2fG+ZsXl0JEH+bjXKPJ3zcXqNyP4/F/NegVdZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div>
+        <nav>
+            <h1>Admin Dashboard</h1>
+            <h3><a href="/admin/dashboard">Student Details</a></h3>
+            <h3><a href="/admin/result">Student Result</a></h3>
+           <h4> <a href="/admin/login"><i class="ri-user-line"></i>Logout</a></h4>
+        </nav>
+        <div>
+            <form method="post">
+                <h2>Student Details Form</h2>
+                <input type="text" name="rollno" placeholder="Enter Roll No..">
+                <br>
+                <input type="text" name="grno" placeholder="Enter GRno..">
+                <br>
+                <input type="text" name="name" placeholder="Enter Student Full Name Here..">
+                <br>
+                <input type="email" name="email" placeholder="enter Student Id..">
+                <br>
+                <input type="text" name="class" placeholder="enter Student Class...">
+                <br>
+                <input type="text" name="batch" placeholder="enter Student Batch..">
+                <br>
+                <input type="password" name="password" placeholder="enter Student Password">
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div class="semitbl">
+            <table>
+              <thead>
+                <tr>
+                  <th>Roll NO</th>
+                  <th>GR No.</th>
+                  <th>Student Name</th>
+                  <th>Student Id</th>
+                  <th>Password</th>
+                  <th>Class</th>
+                  <th>Batch</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+      
+              <tbody>
+                <% task.forEach(function(task) { %>
+                    <tr>
+                        <td><%= task.rollno %></td>
+                        <td><%= task.grno %></td>
+                        <td><%= task.name %></td>
+                        <td><%= task.email %></td>
+                        <td><%= task.password %></td>
+                        <td><%= task.class %></td>
+                        <td><%= task.batch %></td>
+                        <td>
+                            <a href="/admin/delete/<%= task.rollno%>">
+                              <i class="ri-delete-bin-6-line"></i>
+                            </a>
+                            <a href="/admin/update/<%= task.rollno %>">
+                              <i class="ri-edit-2-line"></i>
+                            </a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+            </table>
+          </div>
+    </div>
+    
+</body>
+</html>
